@@ -360,7 +360,6 @@ button {
 
 .logos__img img{
   height: 60px;
-  opacity: .2;
   transition: .3s;
 }
 
@@ -1041,7 +1040,7 @@ button {
   }
 
   .logos__img img{
-    height: 100px;
+    height: 150px;
   }
 
   .popular__container{
