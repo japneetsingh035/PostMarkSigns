@@ -148,7 +148,7 @@ button {
   top:0;
   left:0;
   width: 100%;
-  background-color: transparent;
+  background-color: white;
   z-index: var(--z-fixed);
   transition: .4s;
 }
@@ -162,7 +162,6 @@ button {
 
 .nav__logo{
   font-size: 20px;
-  color: #fff;
   display: inline-flex;
   align-items: center;
   column-gap: .25rem;
