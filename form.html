@@ -22,6 +22,7 @@
       max-width: 400px;
       margin: 0 auto;
       margin-top: 100px;
+      margin-bottom: 100px;
       background-color: #f2f2f2;
       padding: 20px;
       border-radius: 5px;
@@ -112,15 +113,15 @@
  </nav>
 </header>
   <div class="form-container">
-    <form action="submit-form.php" method="POST">
+    <form action="https://formspree.io/f/mzblegez" method="POST">
       <label for="agent-name">Name of Agent:</label>
       <input type="text" id="agent-name" name="agent-name" required>
 
       <label for="agent-email">Email:</label>
-      <input type="email" id="agent-email" name="agent-email" required>
+      <input type="email" id="agent-email" name="agent-email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
 
       <label for="contact-number">Contact Number:</label>
-      <input type="tel" id="contact-number" name="contact-number" required>
+      <input type="tel" id="contact-number" name="contact-number" required pattern="\d{3}-\d{3}-\d{4}">
 
       <label for="brokerage">Brokerage/Company:</label>
       <input type="text" id="brokerage" name="brokerage">
@@ -130,7 +131,7 @@
       <input type="text" id="listing-address-line2" name="listing-address-line2" placeholder="Address Line 2">
       <input type="text" id="listing-city" name="listing-city" placeholder="City" required>
       <input type="text" id="listing-province" name="listing-province" value="ON" readonly>
-      <input type="text" id="listing-postal-code" name="listing-postal-code" placeholder="Postal Code" required>
+      <input type="text" id="listing-postal-code" name="listing-postal-code" placeholder="Postal Code" required pattern="[A-Za-z0-9 -]{3,10}">
       <input type="text" id="listing-country" name="listing-country" value="CA" readonly>
 
       <label for="post-color">Post Color:</label>
@@ -144,7 +145,7 @@
       </select>
 
       <label for="install-date">Install Date:</label>
-      <input type="date" id="dateInput" required >
+      <input name="install-date" type="date" id="dateInput" required oninput="setMinDate()" title="Please select date to install post">
 
       <label for="notes">Notes/Comments/Instructions:</label>
       <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
@@ -152,5 +153,6 @@
       <input type="submit" value="Submit">
     </form>
   </div>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

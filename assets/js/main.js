@@ -4,15 +4,24 @@ document.getElementById("subscribe-button").addEventListener("click", function(e
     // Redirect the user to the form page
     window.location.href = "form.html"; // Replace "form.html" with the actual file name and path of your form page
 });
-// Get the current date
-var currentDate = new Date();
 
-// Format the current date as a string in YYYY-MM-DD format
-var currentDateString = currentDate.toISOString().split("T")[0];
+function setMinDate() {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0); // Set time to midnight for accurate comparison
+    var tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 3);
 
-// Set the date input attribute
-document.getElementById("dateInput").min = currentDateString;
+    var dateInput = document.getElementById('dateInput');
+    dateInput.min = tomorrow.toISOString().split('T')[0]; // Set minimum date to tomorrow
 
+    // Prevent selecting days that have already passed
+    dateInput.addEventListener('input', function () {
+        var selectedDate = new Date(this.value);
+        if (selectedDate <= today) {
+            this.value = '';
+        }
+    });
+}
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 function scrollHeader(){
     const header =document.getElementById('header');
