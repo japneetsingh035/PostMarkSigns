@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--=============== FAVICON ===============-->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+  <!--=============== BOXICONS ===============-->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+  <!--=============== SWIPER CSS ===============-->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>PostMarkSigns Order</title>
+  <style>
+    /* Styling for the form container */
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 100px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    /* Styling for form labels */
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* Styling for form inputs */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    /* Styling for the submit button */
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Styling for the form submission button on hover */
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<!--==================== HEADER ====================-->
+<header class="header" id="header">
+ <nav class="nav container">
+     <a href="#" class="nav__logo">
+         PostMarkSigns <img style="width: 20px;" src="assets/img/sign.png">
+     </a>
+     <div class="nav__menu">
+         <ul class="nav__list">
+             <li class="nav__item">
+                 <a href="#home" class="nav__link active-link">
+                     <i class="bx bx-home-alt-2"></i>
+                     <span>Home</span>
+                 </a>
+             </li>
+             <li class="nav__item">
+                 <a href="#popular" class="nav__link">
+                     <i class="bx bx-building-house"></i>
+                     <span>Residences</span>
+                 </a>
+             </li>
+             <li class="nav__item">
+                 <a href="#value" class="nav__link">
+                     <i class="bx bx-award"></i>
+                     <span>Value</span>
+                 </a>
+             </li>
+             <li class="nav__item">
+                 <a href="#contact" class="nav__link">
+                     <i class="bx bx-phone"></i>
+                     <span>Contact</span>
+                 </a>
+             </li>
+             <li class="nav__item">
+
+             </li>
+         </ul>
+     </div>
+
+     <a href="#" id="subscribe-button" class="button nav__button">
+         Subscribe
+     </a>
+ </nav>
+</header>
+  <div class="form-container">
+    <form action="submit-form.php" method="POST">
+      <label for="agent-name">Name of Agent:</label>
+      <input type="text" id="agent-name" name="agent-name" required>
+
+      <label for="agent-email">Email:</label>
+      <input type="email" id="agent-email" name="agent-email" required>
+
+      <label for="contact-number">Contact Number:</label>
+      <input type="tel" id="contact-number" name="contact-number" required>
+
+      <label for="brokerage">Brokerage/Company:</label>
+      <input type="text" id="brokerage" name="brokerage">
+
+      <label for="listing-address">Listing Address:</label>
+      <input type="text" id="listing-address-line1" name="listing-address-line1" placeholder="Address Line 1" required>
+      <input type="text" id="listing-address-line2" name="listing-address-line2" placeholder="Address Line 2">
+      <input type="text" id="listing-city" name="listing-city" placeholder="City" required>
+      <input type="text" id="listing-province" name="listing-province" value="ON" readonly>
+      <input type="text" id="listing-postal-code" name="listing-postal-code" placeholder="Postal Code" required>
+      <input type="text" id="listing-country" name="listing-country" value="CA" readonly>
+
+      <label for="post-color">Post Color:</label>
+      <select id="post-color" name="post-color" required>
+        <option value="">Choose a color</option>
+        <option value="Black">Black</option>
+        <option value="White">White</option>
+        <option value="Red">Red</option>
+        <option value="Navy Blue">Navy Blue</option>
+        <option value="Cyan">Cyan</option>
+      </select>
+
+      <label for="install-date">Install Date:</label>
+      <input type="date" id="dateInput" required >
+
+      <label for="notes">Notes/Comments/Instructions:</label>
+      <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

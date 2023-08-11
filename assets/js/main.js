@@ -1,3 +1,18 @@
+document.getElementById("subscribe-button").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+
+    // Redirect the user to the form page
+    window.location.href = "form.html"; // Replace "form.html" with the actual file name and path of your form page
+});
+// Get the current date
+var currentDate = new Date();
+
+// Format the current date as a string in YYYY-MM-DD format
+var currentDateString = currentDate.toISOString().split("T")[0];
+
+// Set the date input attribute
+document.getElementById("dateInput").min = currentDateString;
+
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 function scrollHeader(){
     const header =document.getElementById('header');
