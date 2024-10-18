@@ -19,14 +19,45 @@
   <style>
     /* Styling for the form container */
     .form-container {
-      max-width: 400px;
+      max-width: 1000px;
       margin: 0 auto;
       margin-top: 100px;
       margin-bottom: 100px;
       background-color: #f2f2f2;
       padding: 20px;
       border-radius: 5px;
+      opacity: 4;
     }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input {
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr; /* Makes it a single column on smaller screens */
+      }
+    }
+    
 
     /* Styling for form labels */
     label {
@@ -112,46 +143,72 @@
      </a>
  </nav>
 </header>
-  <div class="form-container">
-    <form action="https://formspree.io/f/mzblegez" method="POST">
-      <label for="agent-name">Name of Agent:</label>
-      <input type="text" id="agent-name" name="agent-name" required>
+  <div style="      background-image: url('./assets/img/background2.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* To make it scrollable */">
+    <div class="form-container">
+      <form action="https://formspree.io/f/mzblegez" method="POST">
 
-      <label for="agent-email">Email:</label>
-      <input type="email" id="agent-email" name="agent-email" title="Please enter correct email address ex: email@gmail.com" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="agent-name">Name of Agent:</label>
+            <input type="text" id="agent-name" name="agent-name" required>
+          </div>
+  
+          <div class="form-group">
+            <label for="agent-email">Email:</label>
+            <input type="email" id="agent-email" name="agent-email" title="Please enter correct email address ex: email@gmail.com" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">    
+          </div>
 
-      <label for="contact-number">Contact Number:</label>
-      <input type="tel" id="contact-number" name="contact-number" title="Please enter correct format phone number ex:1231231234" required pattern="\d{3}\d{3}\d{4}">
+          <div class="form-group">
+            <label for="contact-number">Contact Number:</label>
+            <input type="tel" id="contact-number" name="contact-number" title="Please enter correct format phone number ex:1231231234" required pattern="\d{3}\d{3}\d{4}">  
+          </div>
 
-      <label for="brokerage">Brokerage/Company:</label>
-      <input type="text" id="brokerage" name="brokerage">
+          <div class="form-group">
+            <label for="brokerage">Brokerage/Company:</label>
+            <input type="text" id="brokerage" name="brokerage">
+          </div>
+  
+          <div class="form-group">
+            <label for="listing-address">Listing Address:</label>
+            <input type="text" id="listing-address-line1" name="listing-address-line1" placeholder="Address Line 1" required>
+            <input type="text" id="listing-address-line2" name="listing-address-line2" placeholder="Address Line 2">
+            <input type="text" id="listing-city" name="listing-city" placeholder="City" required>
+            <input type="text" id="listing-province" name="listing-province" value="ON" readonly>
+            <input type="text" id="listing-postal-code" name="listing-postal-code" placeholder="Postal Code" title="Please enter correct postal code ex: L1A 3Z1" required pattern="[A-Za-z0-9 -]{3,10}">
+            <input type="text" id="listing-country" name="listing-country" value="CA" readonly>
+          </div>
+  
+          <div class="form-group">
+            <label for="post-color">Post Color:</label>
+            <select id="post-color" name="post-color" required>
+              <option value="">Choose a color</option>
+              <option value="Black">Black</option>
+              <option value="White">White</option>
+              <option value="Red">Red</option>
+              <option value="Navy Blue">Navy Blue</option>
+              <option value="Cyan">Cyan</option>
+            </select>
+          </div>
+  
+        <div class="form-group">
+          <label for="install-date">Install Date:</label>
+          <input name="install-date" type="date" id="dateInput" required oninput="setMinDate()" title="Please select date to install post">  
+        </div>
 
-      <label for="listing-address">Listing Address:</label>
-      <input type="text" id="listing-address-line1" name="listing-address-line1" placeholder="Address Line 1" required>
-      <input type="text" id="listing-address-line2" name="listing-address-line2" placeholder="Address Line 2">
-      <input type="text" id="listing-city" name="listing-city" placeholder="City" required>
-      <input type="text" id="listing-province" name="listing-province" value="ON" readonly>
-      <input type="text" id="listing-postal-code" name="listing-postal-code" placeholder="Postal Code" title="Please enter correct postal code ex: L1A 3Z1" required pattern="[A-Za-z0-9 -]{3,10}">
-      <input type="text" id="listing-country" name="listing-country" value="CA" readonly>
+        <div class="form-group">
+          <label for="notes">Notes/Comments/Instructions:</label>
+          <textarea id="notes" name="notes" rows="4" cols="50"></textarea>  
+        </div>
 
-      <label for="post-color">Post Color:</label>
-      <select id="post-color" name="post-color" required>
-        <option value="">Choose a color</option>
-        <option value="Black">Black</option>
-        <option value="White">White</option>
-        <option value="Red">Red</option>
-        <option value="Navy Blue">Navy Blue</option>
-        <option value="Cyan">Cyan</option>
-      </select>
-
-      <label for="install-date">Install Date:</label>
-      <input name="install-date" type="date" id="dateInput" required oninput="setMinDate()" title="Please select date to install post">
-
-      <label for="notes">Notes/Comments/Instructions:</label>
-      <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
-
-      <input type="submit" value="Submit">
-    </form>
+        <div class="form-group">
+          <input type="submit" value="Submit">
+        </div>
+        </div>
+      </form>
+    </div>
   </div>
   <script src="assets/js/main.js"></script>
 </body>
